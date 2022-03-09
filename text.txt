@@ -1,1 +1,13 @@
 git vs. svn:(diff/patch)
+
+git branche: branche actuelle 
+->creation de branche:
+a partir d'un dvlmpt, on a une divergence de branche ou chacun fera sa partie=>
+**************command git checkout -b branch<>
+->switch:
+********git checkout branch<>
+
+2/git remote: repertorier les depots distants actuellement configures
+=>exemple: fetch/origin/master():::push.
+********git remote -v
+*****************git remote add origin 
