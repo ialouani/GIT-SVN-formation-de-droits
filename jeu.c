@@ -14,12 +14,14 @@ enum valeur {
     SIX, SEPT, HUIT, NEUF, DIX,
     VALET, DAME, ROI, AS
 };
-
+//il faut pour toute carte une valeur cad. de type enum valeur (~INT)
+//+une designation via la couleur(voire les donnees)==>>>type enum couleur.
 struct carte {
   enum valeur valeur;
   enum couleur couleur;
 };
-
+//length
+//+structuration!!22 par un tableau de cartes decrites avant: struct carte cartes[52]...
 struct paquet {
     int nombre;
     struct carte cartes[52];
