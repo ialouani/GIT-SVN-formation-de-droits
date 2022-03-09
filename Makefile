@@ -1,4 +1,3 @@
-
 exo2_run: jeu
 	gcc jeu.c && ./a.out
 exo1_run: exo.c

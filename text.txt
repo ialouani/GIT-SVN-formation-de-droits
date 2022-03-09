@@ -1,13 +1,92 @@
 git vs. svn:(diff/patch)
 
-git branche: branche actuelle 
-->creation de branche:
-a partir d'un dvlmpt, on a une divergence de branche ou chacun fera sa partie=>
-**************command git checkout -b branch<>
-->switch:
-********git checkout branch<>
+git remote -v (fetch(<origin/master),push(origin)).
+git remote add branche github@IP.
+AVEC: creation de branche (divergence incluant commit initial distant)::
+          ****command git checkout -b branch<>
+->git checkout branche<>
+->git branch
 
-2/git remote: repertorier les depots distants actuellement configures
-=>exemple: fetch/origin/master():::push.
-********git remote -v
-*****************git remote add origin 
+ET:
+****1/ git reset --hard HEAD (revision precedente(impossible de faire un push immediat distant....))
+2/ git stash (creation d'un second etat inferieur pour des choses a enregistrer a modifier apres mais a garder en ligne quand meme<<)
+****3/git show (arborescence des fichiers) && git ls-tree
+****4/(<<~~~) git grep ?? permet dans le rslt du 3(2//.) de faire une recherche RECURSIVE.
+5/gitk comme gitg.
+6/git instaweb –httpd=webrick (commandes de developpement niveau 2 pas difficile mais limite a ce quon fait now en GLOBALE ca ne sert a rien)
+****7/git gc via .gitignore pour eviter failed apres push.
+
+ET:
+(IMPORTANT)/<<(****):::::
+a)
+->->	git archive --format=tar master
+b)
+	git prune (git rm pour des fichiers sans pointeurs entrants(2..///))
+c)
+	git rebase master (reapplication des commits sur une autre branche)
+->->
+****************************************************************************
+git reset --hard HEAD ; git branch ; git checkout branche<> ; command git checkout -b branch<> ; git show/git ls-tree ; git grep ; git gc/via:<<.gitignore / git archive --format=tar master ; git rebase master(appli. autres branches /derniers modifications de branche principale master pour les synchronuser avec divergence petite a la fin car on a pas fais un merge).
+
+
+
+
+
+A retenir:
+-git branch + 2 commandes avec(creation        OU deleting && switch between them).
+-git show/git ls-tree
+-git reset --hard HEAD 
+-git gc
+-git archive --format=tar master
+-git grep
+-git rebase master
+IMPORTANT!!!!!!!!!!!!!!!!!!
+-----------------------------------------------------------------
+
+
+
+
+
+
+PATCH/DIFF
+DIFF: difference entre 2 commits:
+	git diff --base v1 v2 #donne la difference (ajouts/suppressions par rapport a un modele en COMMUN CACHE)
+entre ->:::les 2 tags v1 et v2.
+	#s'applique sur les branches aussi.
+PATCH: 
+VIA EX.;;
+git diff v1 v2 ou GIT DIFF --base master master3 > mypatch2.patch
+v2 deja mais a recuperer (limitation) =>appliquer les modifications par rapport a un modele primaire: v1 => faire:
+	git apply mypatch2.patch :applique les modifications aux fichiers pour revenir a v2 presque avec remote pour v1 ancienne et VERSION actuelle meme.//
+=>c'est CA LE PATCH.(utilise pour transferer des versions sous de base d'un projet en tags VERSIONNE)
+
+
+tag<->branche eest CCC'est faux.
+=>logiquement, peut avoir plusieurs branches pour un seul tag mais rarement plusieurs tags pour une seule branche dans un projet professionnel en groupe ../// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
