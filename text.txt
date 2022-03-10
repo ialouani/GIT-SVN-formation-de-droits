@@ -67,7 +67,8 @@ tag<->branche eest CCC'est faux.
 
 
 
-
+remarque:
+git archive -l && git upload-pack ./ permet de compression unifier en un fichier tar ou suffixe par .tar.gz (gunzip -h) et apres de faire plusieurs trucs ###...
 
 
 
